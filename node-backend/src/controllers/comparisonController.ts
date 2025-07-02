@@ -1,26 +1,34 @@
 import { Request, Response } from "express";
 import axios from "axios";
 import Comparison from "../models/Comparison";
-import dotenv from "dotenv";
-
-dotenv.config();
-const FASTAPI_URL = process.env.FASTAPI_URL || "";
+import { config } from "../config/env";
 
 export const handleComparison = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   const { text1, text2 } = req.body;
-  if (!text1 || !text2) {
-    res.status(400).json({ error: "Both texts are required." });
-    return;
-  }
 
   try {
-    const { data } = await axios.post(`${FASTAPI_URL}/compute-embeddings`, {
-      text1,
-      text2,
-    });
+    const { data } = await axios.post(
+      `${config.FASTAPI_URL}/compute-embeddings`,
+      {
+        text1,
+        text2,
+      }
+    );
+
+    if (
+      !text1 ||
+      !text2 ||
+      typeof text1 !== "string" ||
+      typeof text2 !== "string"
+    ) {
+      res.status(400).json({
+        error: "Both text1 and text2 are required and must be strings",
+      });
+      return;
+    }
 
     const comparison = new Comparison({
       text1,
