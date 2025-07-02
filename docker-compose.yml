@@ -4,8 +4,8 @@ services:
     build: ./node-backend
     ports:
       - "3000:3000"
-    volumes:
-      - ./node-backend:/app
+    # volumes:
+    #   - ./node-backend:/app
     env_file:
       - ./node-backend/.env
 
@@ -15,9 +15,3 @@ services:
       - "8000:8000"
     volumes:
       - ./python-backend:/app
-
-  mongo:
-    image: mongo
-    restart: always
-    ports:
-      - "27017:27017"

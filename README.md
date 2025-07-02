@@ -33,6 +33,8 @@ FASTAPI_URL=http://python-backend:8000 3. Start everything with Docker
 
 ### 3. Start the project
 
+`docker-compose up --build`
+
 ## API Usage
 
 POST /compare
