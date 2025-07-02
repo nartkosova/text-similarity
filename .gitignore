@@ -1,0 +1,14 @@
+# Node.js
+**/node_modules
+/node-backend/.env
+
+# Python
+**/venv
+/python-backend/.env
+
+# OS/Editor garbage
+.DS_Store
+*.log
+.vscode/
+.idea/
+**/__pycache__
