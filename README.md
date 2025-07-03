@@ -176,8 +176,6 @@ text-similarity/
 │   │   │   └── Comparison.ts
 │   │   ├── routes/
 │   │   │   └── comparisonRoutes.ts
-│   │   ├── middleware/
-│   │   │   └── validation.ts
 │   │   ├── __tests__/
 │   │   │   ├── setup.ts
 │   │   │   └── comparison.test.ts
@@ -200,15 +198,6 @@ text-similarity/
 ├── docker-compose.yml
 └── README.md
 ```
-
-## Testing
-
-The project includes comprehensive test coverage:
-
-- **Unit tests** for controllers and models
-- **Integration tests** for API endpoints
-- **Validation tests** for input handling
-- **Error handling tests** for edge cases
 
 ### Test Coverage
 
